@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CsPortal2</title>
+  <title>CS Portal</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+  	<script src="//cdnjs.cloudflare.com/ajax/libs/htm5shiv/r29/html5.min.js">
+	</script>
+   <![endif]-->
 </head>
 <body>
-	<% flash.each do |name, msg| -%>
-		<%= content_tag :div, msg, class: "alert alert-#{name}" %>
-	<% end -%>
+	<div class="container">
+		<%= render 'layouts/messages' %>
 		<%= yield %>
+	</div>
 </body>
 </html>
